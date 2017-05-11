@@ -43,9 +43,7 @@ export class AboutPage {
     });
   }
 
-  doSomething(){
-    this.navCtrl.setRoot(AboutPage);
-  }
+
 
 
 
