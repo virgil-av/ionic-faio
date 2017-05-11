@@ -17,7 +17,7 @@ export class HomePage {
   }
 
 
-  ionViewWillEnter(){
+  ionViewDidLoad(){
     this.check();
   }
 
