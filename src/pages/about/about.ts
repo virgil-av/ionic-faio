@@ -9,9 +9,13 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 })
 export class AboutPage {
 
+  myFingerprint: any;
+  failCount: number = 0;
+
   constructor(public navCtrl: NavController, private faio: FingerprintAIO) {
 
   }
+
 
   check(){
     console.log('check');
@@ -25,12 +29,22 @@ export class AboutPage {
   show(){
     console.log('show');
     this.faio.show({
-      clientId: "Fingerprint-Demo"
+      clientId: "This is a fingerprint demo",
+      clientSecret: 'password'
     }).then(result => {
       console.log(result);
+      if(result === 'Success'){
+        this.myFingerprint = 'Good job it works';
+      }else{
+        this.failCount++
+      }
     }).catch(err => {
       console.log(err);
     });
+  }
+
+  doSomething(){
+    this.navCtrl.setRoot(AboutPage);
   }
 
 
